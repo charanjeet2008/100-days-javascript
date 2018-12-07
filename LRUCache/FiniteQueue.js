@@ -11,7 +11,13 @@ FiniteQueue = function(capacity) {
     function pullValue() {
         //todo: try catch
         //todo:remove value upon access
-        return queueStore[0];
+        try {
+            return queueStore[0];
+        }
+        catch(error) {
+            console.log("%s", error);
+            console.log(new Error().stack);
+        }
     }
 
     return {
