@@ -1,5 +1,14 @@
 const LinkedList = require("./LinkedList");
 
+function findModulo(key) {
+    var mod = -1;
+    mod = Math.floor(key % this.capacity);
+    if(mod <= -1) {
+        return "ERROR! in findModulo";
+    }
+    return mod;
+}
+
 class Hash {
     constructor(capacity)
     {
@@ -13,27 +22,20 @@ class Hash {
 
         }
     }
-    findModulo(key) {
-        var mod = -1;
-        mod = Math.floor(key % this.capacity);
-        if(mod <= -1) {
-            return "ERROR! in findModulo";
-        }
-        return mod;
-    }
+
     get(key) {
-        var mod = this.findModulo(key);
+        var mod = findModulo(key);
         console.log("getting at", mod, key);
         return this.valueStore[mod].fetch(key);
     }
     set(key, value) {
-        var mod = this.findModulo(key);
+        var mod = findModulo(key);
         console.log("setting at", mod, key);
 
         this.valueStore[mod].append(key, value);
     }
     remove(key) {
-        var mod = this.findModulo(key);
+        var mod = findModulo(key);
         console.log("removing at", mod, key);
 
         this.valueStore[mod].remove(key);
