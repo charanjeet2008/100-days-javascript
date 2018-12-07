@@ -24,18 +24,18 @@ class Hash {
     }
 
     get(key) {
-        var mod = findModulo(key);
+        var mod = findModulo.bind(this, key)();
         console.log("getting at", mod, key);
         return this.valueStore[mod].fetch(key);
     }
     set(key, value) {
-        var mod = findModulo(key);
+        var mod = findModulo.bind(this, key)();
         console.log("setting at", mod, key);
 
         this.valueStore[mod].append(key, value);
     }
     remove(key) {
-        var mod = findModulo(key);
+        var mod = findModulo.bind(this, key)();
         console.log("removing at", mod, key);
 
         this.valueStore[mod].remove(key);
