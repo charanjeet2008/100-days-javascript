@@ -1,48 +1,53 @@
 const LinkedList = require("./LinkedList");
-Hash = function(capacity) {
-    var valueStore = [];
-    for(i=0;i<capacity;i++) {
-        console.log("hashindex", i);
 
-        valueStore[i] = new LinkedList(i);
+class Hash {
+    constructor(capacity)
+    {
+        this.capacity = capacity;
+        this.valueStore = [];
+        var i=0;
+        for (i = 0; i < capacity; i++) {
+            console.log("hashindex", i);
 
+            this.valueStore[i] = new LinkedList(i);
+
+        }
     }
-
-    function findModulo(key) {
+    findModulo(key) {
         var mod = -1;
-        mod = Math.floor(key % capacity);
+        mod = Math.floor(key % this.capacity);
         if(mod <= -1) {
             return "ERROR! in findModulo";
         }
         return mod;
     }
-    function get(key) {
-        mod = findModulo(key);
+    get(key) {
+        var mod = this.findModulo(key);
         console.log("getting at", mod, key);
-        return valueStore[mod].fetch(key);
+        return this.valueStore[mod].fetch(key);
     }
-    function set(key, value) {
-        mod = findModulo(key);
+    set(key, value) {
+        var mod = this.findModulo(key);
         console.log("setting at", mod, key);
 
-        valueStore[mod].append(key, value);
+        this.valueStore[mod].append(key, value);
     }
-    function remove(key) {
-        mod = findModulo(key);
+    remove(key) {
+        var mod = this.findModulo(key);
         console.log("removing at", mod, key);
 
-        valueStore[mod].remove(key);
+        this.valueStore[mod].remove(key);
     }
-    return {
-        get: function(key) {
-            return get(key);
-        },
-        set: function (key, value) {
-            return set(key, value);
-        },
-        remove: function(key) {
-            remove(key);
-        }
-    }
+    // return {
+    //     get: function(key) {
+    //         return get(key);
+    //     },
+    //     set: function (key, value) {
+    //         return set(key, value);
+    //     },
+    //     remove: function(key) {
+    //         remove(key);
+    //     }
+    // }
 }
 module.exports = Hash;
