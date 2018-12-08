@@ -6,3 +6,6 @@ Hash is modelled in traditional manner ie Array of Linked Lists. I used Object t
 Hash can also be modeled as an Object containing literal values.
 
 Tomorrow, I will clean up the code and setup error conventions.
+
+## 2nd Day (Sat, 8th Dec 2018)
+Today, I added delete functionality to the Finite Queue. This program will take up tmrw.
