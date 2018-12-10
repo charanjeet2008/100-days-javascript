@@ -9,6 +9,7 @@ class FiniteQueue {
         this.queueStore = [];
         this.capacity = capacity;
     }
+
     isFull() {
         if(this.queueStore.length >= this.capacity)
             return true;
@@ -25,24 +26,27 @@ class FiniteQueue {
             return newLength-1;
         }
         catch (e) {
-            console.log("%s", e);
-            console.log(new Error().stack);
-            return false;
+            var errorResponse = new Error(error);
+            errorResponse.statusCode = 404;
+            return errorResponse;
         }
     }
     pull() {
         //todo:remove value upon access
         try {
-            return this.queueStore[0];
+            if(typeof this.queueStore[0] != "undefined")
+                return this.queueStore[0];
+            throw "Not Found";
         }
-        catch(e) {
-            console.log("%s", e);
-            console.log(new Error().stack);
+        catch(error) {
+            var errorResponse = new Error(error);
+            errorResponse.statusCode = 404;
+            return errorResponse;
         }
     }
-    remove(value) {
+    remove(index) {
         try{
-            //sdelete this.queueStore[k]
+            delete this.queueStore[index];
         }
         catch (e) {
 

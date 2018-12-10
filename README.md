@@ -9,3 +9,14 @@ Tomorrow, I will clean up the code and setup error conventions.
 
 ## 2nd Day (Sat, 8th Dec 2018)
 Today, I added delete functionality to the Finite Queue. This program will take up tmrw.
+
+
+Took a leave on Sun.
+
+## 3rd Day (Mon, 10th Dec 2018)
+Today, I completed the Unit Testing of the LRU Cache. 
+
+
+## 4th Day (Tue, 11th Dec 2018)
+Added Utility
+Returning Error Object instead of -1 in case of not found

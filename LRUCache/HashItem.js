@@ -6,6 +6,7 @@ class HashItem {
     }
     append(key, value) {
         this.keyValueStore[key] = value;
+        console.log(this.keyValueStore);
 
     }
     fetch(key) {
@@ -13,13 +14,18 @@ class HashItem {
             if (this.keyValueStore[key])
                 return this.keyValueStore[key];
             else
-                throw 'value not found in List';
+                throw 'Not Found';
+
+            console.log(this.keyValueStore);
+
         }
         catch(error) {
-            console.log("%s", error);
+            var errorResponse = new Error(error);
+            errorResponse.statusCode = 404;
+            return errorResponse;
         }
     }
-    delete(key) {
+    remove(key) {
         try {
             delete this.keyValueStore[key];
         }
