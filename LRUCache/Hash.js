@@ -1,23 +1,20 @@
-const HashItem = require("./HashItem");
-const Utility = require("./Utility");
 class Hash {
-    constructor(capacity)
-    {
-        this.capacity = capacity;
-        this.valueStore = [];
+    constructor() {
+        this.keyValueStore = {};
 
-        var i=0;
-        for (i = 0; i < capacity; i++) {
-            this.valueStore[i] = new HashItem(i);
-        }
     }
+
     get(key) {
         try {
-            var mod = Utility.findModulo.bind(this, key)();
-            return this.valueStore[mod].fetch(key);
+            if (this.keyValueStore[key])
+                return this.keyValueStore[key];
+            else
+                throw 'Not Found';
+
+            console.log(this.keyValueStore);
 
         }
-        catch(error) {
+        catch (error) {
             var errorResponse = new Error(error);
             errorResponse.statusCode = 404;
             return errorResponse;
@@ -26,29 +23,25 @@ class Hash {
 
     set(key, value) {
         try {
-            var mod = Utility.findModulo.bind(this, key)();
-            this.valueStore[mod].append(key, value);
+            this.keyValueStore[key] = value;
         }
-        catch(error) {
-            console.log("error %s", error);
-            console.log(new Error().stack);
+        catch (error) {
+            var errorResponse = new Error(error);
+            errorResponse.statusCode = 404;
+            return errorResponse;
         }
     }
 
     remove(key) {
         try {
-            var mod = Utility.findModulo.bind(this, key)();
-            this.valueStore[mod].remove(key);
+            delete this.keyValueStore[key];
         }
-        catch(error) {
-            console.log("error %s", error);
-            console.log(new Error().stack);
-
+        catch (error) {
+            var errorResponse = new Error(error);
+            errorResponse.statusCode = 404;
+            return errorResponse;
         }
-    }
-
-    updateEvictionIndex(key, evictionIndex) {
-        this.valueStore[mod].up(key, value);
     }
 }
+
 module.exports = Hash;
