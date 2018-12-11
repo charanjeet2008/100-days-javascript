@@ -15,9 +15,13 @@ Took a leave on Sun.
 
 ## 3rd Day (Mon, 10th Dec 2018)
 Today, I completed the Unit Testing of the LRU Cache. 
-
+Added Utility
 
 ## 4th Day (Tue, 11th Dec 2018)
-Added Utility
+Removed Utility
 Returning Error Object instead of -1 in case of not found
 Unit Testing of FiniteQueue is completed
+
+
+
+

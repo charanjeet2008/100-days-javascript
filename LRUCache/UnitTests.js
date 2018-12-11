@@ -1,6 +1,6 @@
 LRUTest = require("./LRUCacheTest");
 FiniteQueueTest = require("./FiniteQueueTest");
-
+HashTest = require("./HashTest");
 // Application logic for the test runner
 _app = {};
 
@@ -9,11 +9,11 @@ _app.tests = {
     'unit' : {}
 };
 
-//_app.tests.unit = LRUTest;
 _app.tests.unit = Object.assign(_app.tests.unit, LRUTest);
 
-//_app.tests.unit.concat(FiniteQueueTest);
 _app.tests.unit = Object.assign(_app.tests.unit,_app.tests.unit, FiniteQueueTest);
+
+_app.tests.unit = Object.assign(_app.tests.unit,_app.tests.unit, HashTest);
 
 // Count all the tests
 _app.countTests = function(){
