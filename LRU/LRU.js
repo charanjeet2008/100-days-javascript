@@ -1,15 +1,18 @@
-// Constructor : Initializes the LRUCache with capacity
-
 const FiniteQueue = require("./FiniteQueue");
 const Hash = require("./Hash");
+const Cache = require("./Cache");
 
-class LRUCache {
+//todo: namespace
+//todo: error codes and names
+class LRU {
     constructor(capacity) {
+
         //init a Queue to track of LRU capacity
         this.evictionStore = new FiniteQueue(capacity);
 
+
         //Items are stored in a Hash which is modeled as an object.
-        this.LRUHash = new Hash();
+        this.hash = new Hash();
     }
 
     /**
@@ -20,32 +23,21 @@ class LRUCache {
     get(key) {
         try {
             //get the value from Hash
-            var response = this.LRUHash.get(key);
-
-            //return Error if value not found
+            var response = this.hash.get(key);
             if(response instanceof Error) return response;
 
 
-            //remove the key from its current index and push to the end in LRU Queue
-            //evictionIndex is saved in Hash to avoid O(n) operation to remove the key
-            this.evictionStore.remove(response.evictionIndex);
-            var newEvictionIndex = this.evictionStore.push(response.value);
+            //update Eviction Store to re-arrange as per the recent usage
+            var updateResponse = Cache._updateAccess.call(this, key, response);
+            if(updateResponse instanceof Error) return updateResponse;
 
-
-            //Remove Hash entry with previous eviction index
-            this.LRUHash.remove(key);
-
-            //Add the key and updated eviction store index to the Hash
-            var hashItem = {};
-            hashItem.value = response.value;
-            hashItem.evictionIndex = newEvictionIndex;
-            this.LRUHash.set(key, hashItem);
 
             //return value
             return response.value;
 
         }
-        catch(err){
+        catch(error){
+            console.log("asdfff");
             var errorResponse = new Error(error);
             errorResponse.statusCode = 404;
             return errorResponse;
@@ -59,21 +51,24 @@ class LRUCache {
      */
     set(key, value) {
         try {
-            //Remove Least Recently Used item
-            if(this.evictionStore.isFull()) {
-                var pulledKey = this.evictionStore.pull();
-                this.LRUHash.remove(pulledKey);
-            }
+
+            //Handle Capacity of Eviction Store
+            var handleResponse = Cache._handleCpacity.call(this);
+            if(handleResponse instanceof Error) return handleResponse;
+
 
             //Push to the eviction store
             var evictionIndex = this.evictionStore.push(key);
+
 
             //Add the key and eviction store index to the hash
             var hashItem = {};
             hashItem.value = value;
             hashItem.evictionIndex = evictionIndex;
 
-            this.LRUHash.set(key, hashItem);
+
+            //Set in Hash
+            this.hash.set(key, hashItem);
         }
         catch(error) {
             var errorResponse = new Error(error);
@@ -82,4 +77,5 @@ class LRUCache {
         }
     }
 }
-module.exports = LRUCache;
+
+module.exports = LRU;

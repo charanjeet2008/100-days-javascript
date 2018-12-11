@@ -1,4 +1,4 @@
-LRUTest = require("./LRUCacheTest");
+LRUTest = require("./LRUTest");
 FiniteQueueTest = require("./FiniteQueueTest");
 HashTest = require("./HashTest");
 // Application logic for the test runner

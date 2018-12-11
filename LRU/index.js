@@ -1,4 +1,4 @@
-const LRUCache = require("./LRUCache");
+const LRUCache = require("./LRU");
 const LRU = new LRUCache(10);
 //LRU.get(3);
 
