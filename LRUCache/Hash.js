@@ -4,12 +4,17 @@ class Hash {
 
     }
 
+    /**
+     * Get the value corresponding to the key
+     * @param key
+     * @returns string Value on Success, {Error} on failure
+     */
     get(key) {
         try {
             if (this.keyValueStore[key])
                 return this.keyValueStore[key];
-            else
-                throw 'Not Found';
+
+            throw 'Not Found';
 
             console.log(this.keyValueStore);
 
@@ -21,9 +26,16 @@ class Hash {
         }
     }
 
+    /**
+     * Set the key-value pair in the Hash
+     * @param key
+     * @param value
+     * @returns Boolean True on Success, {Error} on failure
+     */
     set(key, value) {
         try {
             this.keyValueStore[key] = value;
+            return true;
         }
         catch (error) {
             var errorResponse = new Error(error);
@@ -32,9 +44,20 @@ class Hash {
         }
     }
 
+    /**
+     * Remove the key in the Hash
+     * @param key
+     * @returns Boolean True on Success, {Error} on failure
+     */
     remove(key) {
         try {
-            delete this.keyValueStore[key];
+            if(this.keyValueStore[key]) {
+                delete this.keyValueStore[key];
+                return true;
+            }
+
+            throw "Not Found";
+
         }
         catch (error) {
             var errorResponse = new Error(error);
