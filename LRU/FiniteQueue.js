@@ -4,6 +4,9 @@
  *
  * and, when an item is accessed, it is removed from its current position and pushed to the back
  */
+
+const {NOT_FOUND_IN_QUEUE, CAPACITY_EXCEEDED, VALUE_MISSING_IN_REQUEST} = require("./ErrorCodes");
+
 class FiniteQueue {
 
     constructor(capacity) {
@@ -31,20 +34,19 @@ class FiniteQueue {
     push(value) {
         try {
             if(!value)
-                throw "Value Missing";
+                throw VALUE_MISSING_IN_REQUEST;
 
 
             if(this.isFull())
-                throw "Capacity Exceeded";
+                throw CAPACITY_EXCEEDED;
+
 
             var newLength = this.queueStore.push(value);
-
             return newLength - 1;
 
         }
         catch (error) {
             var errorResponse = new Error(error);
-            errorResponse.statusCode = 404;
             return errorResponse;
         }
     }
@@ -58,11 +60,12 @@ class FiniteQueue {
         try {
             if(typeof this.queueStore[0] != "undefined")
                 return this.queueStore[0];
-            throw "Not Found";
+
+
+            throw NOT_FOUND_IN_QUEUE;
         }
         catch(error) {
             var errorResponse = new Error(error);
-            errorResponse.statusCode = 404;
             return errorResponse;
         }
     }
@@ -74,10 +77,15 @@ class FiniteQueue {
      */
     remove(index) {
         try{
+            if(!this.queueStore[index])
+                throw NOT_FOUND_IN_QUEUE;
+
+
             delete this.queueStore[index];
         }
-        catch (e) {
-
+        catch(error) {
+            var errorResponse = new Error(error);
+            return errorResponse;
         }
     }
 }

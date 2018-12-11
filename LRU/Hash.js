@@ -1,3 +1,4 @@
+const {NOT_FOUND_IN_HASH, VALUE_MISSING_IN_REQUEST} = require("./ErrorCodes");
 class Hash {
     constructor() {
         this.keyValueStore = {};
@@ -14,9 +15,7 @@ class Hash {
             if (this.keyValueStore[key])
                 return this.keyValueStore[key];
 
-            throw 'Not Found';
-
-            console.log(this.keyValueStore);
+            throw NOT_FOUND_IN_HASH;
 
         }
         catch (error) {
@@ -34,6 +33,10 @@ class Hash {
      */
     set(key, value) {
         try {
+            if(!value)
+                throw VALUE_MISSING_IN_REQUEST;
+
+
             this.keyValueStore[key] = value;
             return true;
         }
@@ -56,7 +59,7 @@ class Hash {
                 return true;
             }
 
-            throw "Not Found";
+            throw NOT_FOUND_IN_HASH;
 
         }
         catch (error) {

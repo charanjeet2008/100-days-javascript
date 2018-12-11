@@ -8,7 +8,6 @@ FiniteQueueTest['FiniteQueueTest.pull should return Error on empty queue'] = fun
     var Q = new FiniteQueue(5);
     var val = Q.pull();
     assert(val instanceof Error);
-    assert.equal(val.statusCode, 404);
     assert.equal(val, "Error: Not Found");
     done();
 };
@@ -35,7 +34,6 @@ FiniteQueueTest['FiniteQueueTest.push should return an error on limit crossing']
 
     var index3 = Q.push("Data3");
     assert(index3 instanceof Error);
-    assert.equal(index3.statusCode, 404);
     assert.equal(index3, "Error: Capacity Exceeded");
     done();
 };
@@ -45,7 +43,6 @@ FiniteQueueTest['FiniteQueueTest.push without a value should return Error'] = fu
     var index = Q.push();
 
     assert(index instanceof Error);
-    assert.equal(index.statusCode, 404);
     assert.equal(index, "Error: Value Missing");
     done();
 };

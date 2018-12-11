@@ -3,7 +3,6 @@ const Hash = require("./Hash");
 const Cache = require("./Cache");
 
 //todo: namespace
-//todo: error codes and names
 class LRU {
     constructor(capacity) {
 
