@@ -11,32 +11,44 @@ class LRUCache {
         //Items are stored in a Hash which is modeled as an object.
         this.LRUHash = new Hash();
     }
+
+    /**
+     * Get the value corresponding to the key
+     * @param key
+     * @returns String Value on Success, {Error} on failure
+     */
     get(key) {
         try {
             //get the value from Hash
             var response = this.LRUHash.get(key);
 
+            //return Error if value not found
             if(response instanceof Error) return response;
 
-            //push the key to the end in LRU Queue
-            this.evictionStore.remove(response.evictionIndex);
-            var evictionIndex = this.evictionStore.push(response.value);
 
-            //update evictionIndex of the Hashed item
+            //remove the key from its current index and push to the end in LRU Queue
+            //evictionIndex is saved in Hash to avoid O(n) operation to remove the key
+            this.evictionStore.remove(response.evictionIndex);
+            var newEvictionIndex = this.evictionStore.push(response.value);
+
+
+            //Remove Hash entry with previous eviction index
             this.LRUHash.remove(key);
-            //Add the key and eviction store index to the hash
+
+            //Add the key and updated eviction store index to the Hash
             var hashItem = {};
             hashItem.value = response.value;
-            hashItem.evictionIndex = evictionIndex;
+            hashItem.evictionIndex = newEvictionIndex;
             this.LRUHash.set(key, hashItem);
 
+            //return value
             return response.value;
 
         }
         catch(err){
-            console.error("%s",err);
-            console.log(new Error().stack);
-            return -1;
+            var errorResponse = new Error(error);
+            errorResponse.statusCode = 404;
+            return errorResponse;
         }
     }
 
@@ -64,8 +76,9 @@ class LRUCache {
             this.LRUHash.set(key, hashItem);
         }
         catch(error) {
-            console.log("error %s", error);
-
+            var errorResponse = new Error(error);
+            errorResponse.statusCode = 404;
+            return errorResponse;
         }
     }
 }
