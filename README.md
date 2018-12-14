@@ -24,5 +24,8 @@ Unit Testing of FiniteQueue is completed
 Added Error Codes
 Refactored LRUCache
 
+## 5th Day (Wed, 12th Dec 2018)
+Revise Creational Design Patterns
+
 
 
