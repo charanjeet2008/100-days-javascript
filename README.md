@@ -28,4 +28,7 @@ Refactored LRUCache
 Revise Creational Design Patterns
 
 
+Took levae on 13th Dec
 
+## 6th Day (Fri, 14th Dec 2018)
+Revise Structural Design Patterns
