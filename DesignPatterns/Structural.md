@@ -37,3 +37,38 @@ https://lh3.googleusercontent.com/1jBXTzkUIdueAa5dpgeghlegjcPN281NmsfAfZ2HCviTLd
 https://en.wikipedia.org/wiki/Decorator_pattern
 
 https://sourcemaking.com/design_patterns/decorator
+
+## 5. Facade
+Provides a unified interface to a set of interfaces in a subsystems. Defines a high-level interface that makes the subsystem easier to user.
+
+A Facade is used when an easier or simpler interface to an underlying object is desired. Alternatively, an adapter can be used when the wrapper must respect a particular interface and must support polymorphic behavior. A decorator makes it possible to add or alter behavior of an interface at run-time.  
+
+https://upload.wikimedia.org/wikipedia/commons/9/96/W3sDesign_Facade_Design_Pattern_UML.jpg
+https://en.wikipedia.org/wiki/Facade_pattern
+https://sourcemaking.com/design_patterns/facade
+
+## 6. Flyweight
+Use sharing to support large number of fine grained objects efficiently.
+https://upload.wikimedia.org/wikipedia/commons/4/4e/W3sDesign_Flyweight_Design_Pattern_UML.jpg
+https://c2.staticflickr.com/8/7205/6804688716_bb686fd4c0_b.jpg
+https://refactoring.guru/design-patterns/flyweight
+https://sourcemaking.com/design_patterns/flyweight
+https://en.wikipedia.org/wiki/Flyweight_pattern
+
+## 7. Proxy
+Provides a surrogate or placeholder for another object to control access to it.
+https://upload.wikimedia.org/wikipedia/commons/6/6e/W3sDesign_Proxy_Design_Pattern_UML.jpg
+https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Proxy_pattern_diagram.svg/439px-Proxy_pattern_diagram.svg.png
+https://en.wikipedia.org/wiki/Proxy_pattern
+https://sourcemaking.com/design_patterns/proxy
+
+## 8. Module
+Group several related elements, such as classes, singletons, methods, globally used, into a single conceptual entity.
+https://en.wikipedia.org/wiki/Module_pattern
+
+##9. Marker
+Empty interface to associate metadata with a class.
+https://en.wikipedia.org/wiki/Marker_interface_pattern
+
+##10. Private Class Data
+https://sourcemaking.com/design_patterns/private_class_data

@@ -32,3 +32,7 @@ Took levae on 13th Dec
 
 ## 6th Day (Fri, 14th Dec 2018)
 Revise Structural Design Patterns
+
+Took leave on 15th Dec
+
+## 7th Day (Sun, 16th Dec 2018)
