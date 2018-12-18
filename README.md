@@ -36,3 +36,14 @@ Revise Structural Design Patterns
 Took leave on 15th Dec
 
 ## 7th Day (Sun, 16th Dec 2018)
+Revised 5 of the behavioral patterns
+
+Took leave on 17th Dec
+
+## 8th Day (Tue, 18th Dec 2018)
+Completed Revision of design patterns
+solved this inside array of objects doubt
+solved when to return callback vs when to throw exception in nodejs.
+
+
+print posters on design patterns cheatsheet
