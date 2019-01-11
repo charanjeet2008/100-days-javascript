@@ -46,4 +46,29 @@ solved this inside array of objects doubt
 solved when to return callback vs when to throw exception in nodejs.
 
 
-print posters on design patterns cheatsheet
+print posters on design patterns cheatsheet : Done
+
+## 9th Day (Tue, 25th Dec 2018)
+given an even number, find two primes it is sum of
+program is working fine on local but is failing on interviewbit
+
+##10th Day (Tue, 1st Jan 2019)
+Execute and complete primesSum, learn the best method
+primesSum, brute force approach is time taking, 
+therefore switched to https://www.youtube.com/watch?v=eKp56OLhoQs&feature=player_embedded
+I was initially saving the all integers in an array with a flag, but looking at the memory constraints switched to object wherein non-primes are deleted. 
+>> I had declared subtraction as a const due to which it was not getting updated in the while loop
+
+https://javascript.info/map-set-weakmap-weakset
+
+
+Solved and submitted
+https://www.interviewbit.com/problems/min-steps-in-infinite-grid/
+https://www.interviewbit.com/problems/add-one-to-number/
+
+
+##11th Day (Thu, 10th Jan 2019)
+
+
+
+
