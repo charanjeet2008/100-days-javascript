@@ -68,7 +68,10 @@ https://www.interviewbit.com/problems/add-one-to-number/
 
 
 ##11th Day (Thu, 10th Jan 2019)
+Creational Patterns by Addy Osmani
+
+##12th Day (Fri, 11th Jan 2019)
+Structural Patterns by Addy Osmani
 
 
-
-
+##13th Day (Mon, 21st Jan 2019)

@@ -8,6 +8,7 @@ Patterns that fall under this category include: Decorator, Facade, Flyweight, Ad
 Converts the interface of a class into another interface client expect. Lets classes work together that couldn't otherwise because of incompatible interfaces.
 Also called Wrapper or Translator.
 
+Adapters basically allow objects or classes to function together which normally couldn't due to their incompatible interfaces. The adapter translates calls to its interface into calls to the original interface and the code required to achieve this is usually quite minimal.
 ![alt text](https://upload.wikimedia.org/wikipedia/commons/e/e5/W3sDesign_Adapter_Design_Pattern_UML.jpg)
 ![alt text](https://dotnettricks.blob.core.windows.net/img/designpatterns/adapter.png)
 https://en.wikipedia.org/wiki/Adapter_pattern
@@ -29,6 +30,9 @@ Compose objects into tree structures to represent part-whole hierarchies. Lets c
 https://lh3.googleusercontent.com/1jBXTzkUIdueAa5dpgeghlegjcPN281NmsfAfZ2HCviTLd8PrSe93fm3DKOTDBydXC6ckg=s170https://en.wikipedia.org/wiki/Composite_pattern
 https://sourcemaking.com/design_patterns/composite
 
+The Composite Pattern describes a group of objects that can be treated in the same way a single instance of an object may be.
+This allows us to treat both individual objects and compositions in a uniform manner, meaning that the same behavior will be applied regardless of whether we're working with one item or a thousand.
+
 ## 4. Decorator
 Attach additional responsibilities to an object dynamically. Provide a flexible alternative to sub-classing for extending functionality.
 
@@ -40,14 +44,28 @@ https://en.wikipedia.org/wiki/Decorator_pattern
 
 https://sourcemaking.com/design_patterns/decorator
 
+The idea is that rather than sub-classing, we add (decorate) properties or methods to a base object so it's a little more streamlined.
+
+There are however drawbacks that we should be aware of when implementing the pattern. 
+If poorly managed, it can significantly complicate our application architecture as it introduces many small, but similar objects into our namespace. 
+The concern here is that in addition to becoming hard to manage, other developers unfamiliar with the pattern may have a hard time grasping why it's being used.
+Sufficient commenting or pattern research should assist with the latter, however as long as we keep a handle on how widespread we use the decorator in our applications we should be fine on both counts.
+
+
 ## 5. Facade
 Provides a unified interface to a set of interfaces in a subsystems. Defines a high-level interface that makes the subsystem easier to user.
 
-A Facade is used when an easier or simpler interface to an underlying object is desired. Alternatively, an adapter can be used when the wrapper must respect a particular interface and must support polymorphic behavior. A decorator makes it possible to add or alter behavior of an interface at run-time.  
+A Facade is used when an easier or simpler interface to an underlying object is desired. 
+Alternatively, an adapter can be used when the wrapper must respect a particular interface and must support polymorphic behavior. 
+  
 
 ![alt text](https://upload.wikimedia.org/wikipedia/commons/9/96/W3sDesign_Facade_Design_Pattern_UML.jpg)
 https://en.wikipedia.org/wiki/Facade_pattern
 https://sourcemaking.com/design_patterns/facade
+
+To build on what we've learned, the Facade pattern both simplifies the interface of a class and it also decouples the class from the code that utilizes it. 
+This gives us the ability to indirectly interact with subsystems in a way that can sometimes be less prone to error than accessing the subsystem directly. 
+A Facade's advantages include ease of use and often a small size-footprint in implementing the pattern.
 
 ## 6. Flyweight
 Use sharing to support large number of fine grained objects efficiently.
@@ -56,6 +74,18 @@ Use sharing to support large number of fine grained objects efficiently.
 https://refactoring.guru/design-patterns/flyweight
 https://sourcemaking.com/design_patterns/flyweight
 https://en.wikipedia.org/wiki/Flyweight_pattern
+
+The Flyweight pattern is a classical structural solution for optimizing code that is repetitive, slow and inefficiently shares data. It aims to minimize the use of memory in an application by sharing as much data as possible with related objects (e.g application configuration, state and so on).
+
+Flyweight: corresponds to an interface through which flyweights are able to receive and act on extrinsic states
+
+Concrete Flyweight: actually implements the Flyweight interface and stores intrinsic state. 
+Concrete Flyweights need to be sharable and capable of manipulating state that is extrinsic
+
+Flyweight Factory: manages flyweight objects and creates them too. 
+It makes sure that our flyweights are shared and manages them as a group of objects which can be queried if we require individual instances. 
+If an object has been already created in the group it returns it, otherwise it adds a new object to the pool and returns it.
+
 
 ## 7. Proxy
 Provides a surrogate or placeholder for another object to control access to it.
