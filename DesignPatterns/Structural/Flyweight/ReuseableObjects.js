@@ -88,11 +88,11 @@ const testFlyweight = () => {
     let ordersMade = 0;
 
     // The CoffeeFlavorFactory instance
-    const flavorFactory = new CoffeeFlavorFactory();
+    const flavorFactory = CoffeeFlavorFactory();
 
     function takeOrders(flavorIn, table) {
         flavors.push(flavorFactory.getCoffeeFlavor(flavorIn));
-        tables.push(new CoffeeOrderContext(table));
+        tables.push(CoffeeOrderContext(table));
         ordersMade++;
     }
 
@@ -120,3 +120,5 @@ const testFlyweight = () => {
         `total CoffeeFlavor objects made: ${flavorFactory.getTotalCoffeeFlavorsMade()}`
     );
 };
+
+testFlyweight();

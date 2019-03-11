@@ -11,7 +11,7 @@
         </span>
     </div>
 </div>
-**/s
+**/
 
 const stateManager = {
     fly() {

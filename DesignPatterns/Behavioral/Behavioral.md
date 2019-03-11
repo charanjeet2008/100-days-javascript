@@ -3,7 +3,8 @@ Behavioral patterns focus on improving or streamlining the communication between
 Some behavioral patterns include: Iterator, Mediator, Observer and Visitor.
 
 ## 1. Chain of Responsibility
-Avoid coupling the sender of a request to its receiver by giving more than one object a chance to handle the request. Chain the receiving objects and pass the request along the chain until an object handles it.
+Avoid coupling the sender of a request to its receiver by giving more than one object a chance to handle the request. 
+Chain the receiving objects and pass the request along the chain until an object handles it.
 
 ![alt text](https://upload.wikimedia.org/wikipedia/commons/6/6a/W3sDesign_Chain_of_Responsibility_Design_Pattern_UML.jpg)
 ![alt text](https://dzone.com/storage/rc-covers/10621-thumb.png)
@@ -21,6 +22,12 @@ https://en.wikipedia.org/wiki/Command_pattern
 https://sourcemaking.com/design_patterns/command
 https://refactoring.guru/design-patterns/command
 
+Encapsulate a command request as an object to enable, logging and/or queuing of requests, and provides error-handling for unhandled requests.
+
+The Command pattern aims to encapsulate method invocation, requests or operations into a single object 
+and gives us the ability to both parameterize and pass method calls around that can be executed at our discretion. 
+In addition, it enables us to decouple objects invoking the action from the objects which implement them, 
+giving us a greater degree of overall flexibility in swapping out concrete classes (objects).
 
 ## 3. Interpreter
 Given a language, define a representation for its grammar along with an interpreter that uses the representation to interpret sentences in the language.
@@ -29,6 +36,7 @@ https://en.wikipedia.org/wiki/Interpreter_pattern
 ![alt text](https://upload.wikimedia.org/wikipedia/commons/3/33/W3sDesign_Interpreter_Design_Pattern_UML.jpg)
 https://sourcemaking.com/design_patterns/interpreter
 
+A way to include language elements in an application to match the grammar of the intended language.
 
 ## 4. Iterator 
 Provide a way to access the elements of an aggregate object sequentially without exposing its underlying representation.
@@ -39,12 +47,17 @@ https://en.wikipedia.org/wiki/Iterator_pattern
 https://sourcemaking.com/design_patterns/iterator
 https://refactoring.guru/design-patterns/iterator
 
+This is a pattern that could be considered a special case of the facade, where we explicitly deal with problems related to iteration.
 
 ## 5. Mediator
 Define an object that encapsulates how a set of objects interact. Promotes loose coupling by keeping objects from referring to each other explicitly and it lets you vary their interactions independently.
 
 https://sourcemaking.com/design_patterns/mediator
 https://refactoring.guru/design-patterns/mediator
+
+A mediator is best applied when two or more objects have an indirect working relationship, and business logic or workflow needs to dictate the interactions and coordination of these objects.
+A wizard interface is a good example of this.
+
 
 ## 6. Memento
 Without violating encapsulation, capture and externalize an object's internal state so that the object can be restored to this state later.

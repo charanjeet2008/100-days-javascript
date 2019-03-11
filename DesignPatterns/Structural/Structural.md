@@ -94,9 +94,17 @@ Provides a surrogate or placeholder for another object to control access to it.
 https://en.wikipedia.org/wiki/Proxy_pattern
 https://sourcemaking.com/design_patterns/proxy
 
+achieved via apply function of javascript
+
 ## 8. Module
 Group several related elements, such as classes, singletons, methods, globally used, into a single conceptual entity.
 https://en.wikipedia.org/wiki/Module_pattern
+
+In JavaScript, there are several options for implementing modules. These include:
+- The Module pattern
+- Object literal notation
+- AMD modules
+- CommonJS modules ECMAScript Harmony modules
 
 ##9. Marker
 Empty interface to associate metadata with a class.

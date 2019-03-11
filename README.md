@@ -75,3 +75,13 @@ Structural Patterns by Addy Osmani
 
 
 ##13th Day (Mon, 21st Jan 2019)
+Proxy and Module patterns
+
+
+##14th Day (Fri, 25th Jan 2019)
+Completed Behavioral patterns out of the addy osmani book. many patterns are left to do because they were not present in the book.
+
+
+##15th Day (Sat, 26th Jan 2019)
+interviewbit
+https://hackernoon.com/execution-context-in-javascript-319dd72e8e2c
