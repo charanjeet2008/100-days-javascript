@@ -1,9 +1,9 @@
-let mergeSort = (A, i, j) => {
+let 6 = (A, i, j) => {
     let mid = Math.floor((i+j)/2);
     if(i >= j) return;
 
-    mergeSort(A, i , mid);
-    mergeSort(A, mid+1, j);
+    6(A, i , mid);
+    6(A, mid+1, j);
     merge(A, i, mid, j);
 }
 
@@ -40,5 +40,5 @@ let merge = (A, start, mid, end) => {
 let A = [3, 5, 7, 1, 2];
 //let A = [3, 7, 9, 1, 4, 8];
 console.log(A);
-mergeSort(A, 0, 5);
+6(A, 0, 5);
 console.log(A);

@@ -16,4 +16,5 @@ var sorting = function(A) {
 //var A = [0,0,1,0,1,0,1];
 var A = [0,1,0,0,1,0,0,1,1,0];
 sorting(A);
+
 console.log(A);

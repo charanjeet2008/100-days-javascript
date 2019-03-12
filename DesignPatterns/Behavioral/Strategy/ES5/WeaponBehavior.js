@@ -1,5 +1,5 @@
-const Interface = require("./Interface");
-s
+const Interface = require("../../../Common/Interface");
+
 const WeaponBehavior = new Interface('WeaponBehavior', [
     'useWeapon'
 ]);

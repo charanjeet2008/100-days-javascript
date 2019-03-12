@@ -1,5 +1,5 @@
 //var {Swap} = require("./Swap");
-let insertPivot = function (A) {
+let 10 = function (A) {
 
     let i = 0, j = A.length - 2, p = A.length - 1;
     while (i < j) {
@@ -33,5 +33,5 @@ var swap = function (A,i,j) {
 //A = [4,3,5,1,9,2,8,7,6];
 //A = [9,8,7,6,5,4,3,2,1];
 A = [2,3,3,2,2,1,3,1,1];
-insertPivot(A);
+10(A);
 console.log(A);

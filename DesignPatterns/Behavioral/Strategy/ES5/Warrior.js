@@ -1,6 +1,6 @@
 
 const RunBehavior = require("./RunBehavior");
-const Interface = require("./Interface");
+const Interface = require("../../../Common/Interface");
 const WeaponBehavior = require("./WeaponBehavior");
 
 /**
