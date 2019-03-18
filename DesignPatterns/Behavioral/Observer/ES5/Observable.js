@@ -8,32 +8,26 @@ const ObserverInterface = require("./ObserverInterface");
  */
 
 let Observable = function() {
-    let observers = [];
-    update();
-    function addObserver(observer) {
+    this.observers = [];
+
+    this.addObserver = function(observer) {
         Interface.ensureImplements(observer, ObserverInterface);
 
-        observers.push(observer);
+        this.observers.push(observer);
     }
-    function removeObserver(observer) {
-        observers.filter(function(value) {
+
+    this.removeObserver = function(observer) {
+        this.observers.filter(function(value) {
             value !== observer;
         })
      }
-     function getRandom() {
-        return Math.random();
-     }
-    function update() {
-        setInterval(function() {
-            let nextRandom = getRandom();
-            observers.map(function(currentObserver) {
-                currentObserver.onOTPchange(nextRandom);
-            })
-        },3000);
-     }
-    return {
-        addObserver: addObserver,
-        removeObserver: removeObserver
+     this.notify = function(value) {
+        if(typeof this.observers == "undefined" || this.observers.length <= 0 ) return;
+        this.observers.map(function(currentObserver) {
+            currentObserver.onOTPchange(value);
+        })
     }
+
 }
+
 module.exports = Observable;

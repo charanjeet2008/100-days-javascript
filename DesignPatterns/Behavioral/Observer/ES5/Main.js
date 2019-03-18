@@ -1,13 +1,13 @@
-let Observable = require("./Observable");
-let MobileOTP = require("./MobileOTP");
-let DesktopOTP = require("./DesktopOTP");
+const ObservableOTP = require("./ObservableOTP");
+const MobileOTP = require("./MobileOTP");
+const DesktopOTP = require("./DesktopOTP");
 
 
-let OTPPublisher = new Observable();
+var ObservableObj = new ObservableOTP();
+
 //Mobile Site Code
-let MobileSite = new MobileOTP();
-OTPPublisher.addObserver(MobileSite); //Cannot be done inside constructor as this would not have the object returned by Revealing Module Pattern that has all the functions
+const MobileSite = new MobileOTP();
+ObservableObj.addObserver(MobileSite); //Cannot be done inside constructor as this would not have the object returned by Revealing Module Pattern that has all the functions
 
-
-let DesktopSite = new DesktopOTP();
-OTPPublisher.addObserver(DesktopSite)
+const DesktopSite = new DesktopOTP();
+ObservableObj.addObserver(DesktopSite)
