@@ -49,24 +49,24 @@ class NumArray {
         return isinstance(x, (int, float))
 
     def calculatePrefixSum():
-        j=0
+        n = len(this.numbers)
+        
         self.prefixSum[j] = self.numbers[0]
-
-        for i, num in enumerate(self.numbers):
+        
+        for i in range(1, n-1)
 
             if not is_valid_number(num):
                 raise ValueError("Invalid values")
 
-            j += 1
-            self.prefixSum[j] = self.prefixSum[j-1] + num
+            self.prefixSum[i] = self.prefixSum[i-1] + self.numbers[i]
 
     def sumRange(left, right):
         #if no right index
         #if no left index
-        if self.prefixSum[left-1]
-            leftValue = self.prefixSum[left-1]
-        else leftValue = 0
-        return self.prefixSum[right] - leftValue
+        if left == 0:
+            return self.prefix_sum[right]
+
+        return self.prefixSum[right] - self.prefixSum[left-1]
 
 }
 
