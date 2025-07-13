@@ -43,6 +43,7 @@ class NumArray {
         
         self.numbers = numbers
         self.prefixSum = []
+        
         self.calculatePrefixSum()
     
     def is_valid_number(x):
@@ -50,8 +51,7 @@ class NumArray {
 
     def calculatePrefixSum():
         n = len(this.numbers)
-        
-        self.prefixSum[j] = self.numbers[0]
+        self.prefixSum[0] = 0
         
         for i in range(1, n-1)
 
@@ -61,11 +61,7 @@ class NumArray {
             self.prefixSum[i] = self.prefixSum[i-1] + self.numbers[i]
 
     def sumRange(left, right):
-        #if no right index
-        #if no left index
-        if left == 0:
-            return self.prefix_sum[right]
-
+        
         return self.prefixSum[right] - self.prefixSum[left-1]
 
 }
